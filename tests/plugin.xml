@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        id="cordova-plugin-dns-test"
+        id="cordova-dns-plugin-test"
         version="1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
     <name>Corodva DNS Query Test</name>
