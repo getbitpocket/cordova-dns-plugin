@@ -4,7 +4,7 @@ A Plugin for querying IP addresses to domain names
 
 ## Installation
 
-`cordova plugin add https://github.com/getbitpocket/cordova-dns-plugin.git`
+`cordova plugin add cordova-dns-plugin`
 
 ## Quick Example
 
