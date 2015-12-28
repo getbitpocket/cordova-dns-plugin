@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-dns"
+        version="1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <name>Corodva DNS Query</name>
+    <description>A Plugin for querying IP addresses to domain names</description>
+    <author>Stefan Huber</author>
+    <keywords>dns</keywords>
+    <license>Apache 2.0 License</license>
+
+    <js-module src="www/DnsQuery.js" name="DnsQuery">
+        <clobbers target="cordova.plugins.dns"/>
+    </js-module>
+
+    <platform name="android">
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.INTERNET" />
+        </config-file>
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="DnsQuery">
+                <param name="android-package" value="at.bitpocket.DnsQuery" />
+            </feature>
+        </config-file>
+        <source-file src="src/android/DnsQuery.java" target-dir="src/at/bitpocket" />
+    </platform>
+
+</plugin>

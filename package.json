@@ -1,0 +1,25 @@
+{
+  "name": "cordova-dns-plugin",
+  "version": "1.0.0",
+  "description": "A Plugin for querying IP addresses to domain names",
+  "cordova": {
+    "id" : "cordova-dns-plugin" ,
+    "platforms" : [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/getbitpocket/cordova-dns-plugin.git"
+  },
+  "keywords": [
+    "cordova",
+    "dns"
+  ],
+  "author": "Stefan Huber",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/getbitpocket/cordova-dns-plugin/issues"
+  },
+  "homepage": "https://github.com/getbitpocket/cordova-dns-plugin#readme"
+}
