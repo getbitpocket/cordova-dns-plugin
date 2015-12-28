@@ -1,6 +1,6 @@
 {
   "name": "cordova-dns-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Plugin for querying IP addresses to domain names",
   "cordova": {
     "id" : "cordova-dns-plugin" ,
