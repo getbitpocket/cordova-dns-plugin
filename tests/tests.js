@@ -11,14 +11,14 @@ exports.defineAutoTests = function() {
         });
 
         it("resolve should return an ip address", function (done) {
-            cordova.plugins.dns.resolve('seed.bitcoin.sipa.be', function (ip) {
+            cordova.plugins.dns.resolve('seed.bitcoin.sipa.be').then(function (ip) {
                 expect(ip).toMatch(ipRegex);
                 done();
             });
         });
 
         it("resolveAll should return multiple ip addresses", function (done) {
-            cordova.plugins.dns.resolveAll('seed.bitcoin.sipa.be', function (ips) {
+            cordova.plugins.dns.resolveAll('seed.bitcoin.sipa.be').then(function (ips) {
                 expect(ips.length).toBeGreaterThan(1);
                 ips.forEach(function (ip) {
                     expect(ip).toMatch(ipRegex);
@@ -28,11 +28,25 @@ exports.defineAutoTests = function() {
         });
 
         it("an invalid domain error should be returned", function (done) {
-            cordova.plugins.dns.resolve('zzzz///', function () {
+            cordova.plugins.dns.resolve('zzzz///').then(function () {
             }, function (error) {
                 expect(error).toEqual('Unable to resolve host "zzzz///": No address associated with hostname');
                 done();
             });
+        });
+
+        it("resolveSrv should return an srv lookup", function (done) {
+            cordova.plugins.dns.srvLookup('_pexapp._tcp', 'pexipdemo.com').then(function (ips) {
+                expect(ips[0]).toEqual('https://no-rp.pexipdemo.com:443');
+                done();
+            }, function(error) {expect(error).toBe(false);});
+        });
+
+        it("resolveSrv should fallback with a missing srv lookup", function (done) {
+            cordova.plugins.dns.srvLookup('_pexapp._tcp', 'lol.com').then(function (ips) {
+                expect(ips[0]).toEqual('https://lol.com:443');
+                done();
+            }, function(error) {expect(error).toBe(false);});
         });
 
     });
